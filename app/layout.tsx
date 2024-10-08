@@ -1,44 +1,44 @@
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import { Inter, Playfair_Display } from 'next/font/google';
-import { cn } from '@/lib/utils';
-import './globals.css';
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import { Inter, Playfair_Display } from 'next/font/google'
+import { cn } from '@/lib/utils'
+import './globals.css'
 
-import Providers from '@/components/providers';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Providers from '@/components/providers'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
-  weight: '100 900',
-});
+  weight: '100 900'
+})
 const geistMono = localFont({
   src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
-  weight: '100 900',
-});
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+  weight: '100 900'
+})
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-serif',
-});
+  variable: '--font-serif'
+})
 
 export const metadata: Metadata = {
   title: 'Next Shadcn Template',
-  description: 'NextJs template with shadcn/ui',
-};
+  description: 'NextJs template with shadcn/ui'
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang='en' className='scroll-smooth' suppressHydrationWarning>
       <body
         className={cn(
-          'flex min-h-screen flex-col',
+          'flex min-h-screen flex-col font-sans antialiased',
           geistSans.variable,
           geistMono.variable,
           inter.variable,
@@ -47,10 +47,10 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          <main className="grow">{children}</main>
+          <main className='grow'>{children}</main>
           <Footer />
         </Providers>
       </body>
     </html>
-  );
+  )
 }
